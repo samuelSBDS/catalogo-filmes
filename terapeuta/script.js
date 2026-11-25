@@ -2,6 +2,11 @@
 // Coloque aqui o número de WhatsApp (código do país + DDD + número, só dígitos)
 const WHATSAPP = "5500000000000";
 
+// Todos os botões de WhatsApp usam o número acima
+document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+  link.href = `https://wa.me/${WHATSAPP}`;
+});
+
 // ===== MENU MOBILE =====
 const menuBotao = document.querySelector(".menu-botao");
 const menu = document.querySelector("#menu");
@@ -42,6 +47,7 @@ formulario.addEventListener("submit", (evento) => {
   const nome = formulario.nome.value.trim();
   const tel = formulario.telefone.value.replace(/\D/g, "");
   const modalidade = formulario.modalidade.value;
+  const cidade = formulario.cidade.value.trim();
   const mensagem = formulario.mensagem.value.trim();
 
   formulario.nome.classList.toggle("invalido", nome.length < 2);
@@ -57,11 +63,12 @@ formulario.addEventListener("submit", (evento) => {
     `Olá! Meu nome é ${nome}.\n` +
     `Gostaria de agendar uma sessão (${modalidade}).\n` +
     `Telefone: ${formulario.telefone.value}` +
+    (cidade ? `\nCidade/bairro: ${cidade}` : "") +
     (mensagem ? `\n\n${mensagem}` : "");
 
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, "_blank", "noopener");
 
-  aviso.textContent = "Obrigada! Sua mensagem foi preparada no WhatsApp.";
+  aviso.textContent = "Obrigado! Sua mensagem foi preparada no WhatsApp.";
   aviso.className = "formulario__aviso sucesso";
   formulario.reset();
 });

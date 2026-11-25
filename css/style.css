@@ -1,0 +1,82 @@
+/* Cores e espaçamentos usados no site todo */
+:root {
+  --fundo: #111;
+  --cartao: #1d1d1d;
+  --texto: #eee;
+  --suave: #999;
+  --destaque: #e50914;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; padding: 1rem; max-width: 1200px; width: 100%; margin: 0 auto; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Topo ---------- */
+.topo {
+  display: flex; flex-wrap: wrap; gap: .75rem; align-items: center;
+  justify-content: space-between; padding: 1rem; background: #000;
+}
+.topo h1 { margin: 0; font-size: 1.4rem; }
+#busca {
+  flex: 1; min-width: 200px; max-width: 420px; padding: .6rem .9rem;
+  border-radius: 999px; border: 1px solid #333; background: #222; color: var(--texto); font-size: 1rem;
+}
+
+/* ---------- Serviços e filtro ---------- */
+.servicos { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+.servicos button, .carregar-mais {
+  padding: .5rem 1rem; border-radius: 999px; border: 1px solid #444;
+  background: #222; color: var(--texto); cursor: pointer; font-size: .95rem;
+}
+.servicos button.ativo { background: var(--destaque); border-color: var(--destaque); }
+.filtro { display: inline-block; margin-bottom: 1rem; color: var(--suave); }
+.filtro select { margin-left: .4rem; padding: .35rem; background: #222; color: var(--texto); border: 1px solid #444; border-radius: 6px; }
+
+/* ---------- Grade de pôsteres ---------- */
+.grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+@media (min-width: 768px) { .grade { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); } }
+.cartao { background: var(--cartao); border-radius: 8px; overflow: hidden; transition: transform .15s; }
+.cartao:hover { transform: scale(1.03); }
+.cartao img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
+.cartao .info { padding: .5rem; }
+.cartao h3 { margin: 0; font-size: .95rem; }
+.cartao .ano { color: var(--suave); font-size: .85rem; }
+
+.carregar-mais { display: block; margin: 1.5rem auto; }
+.carregar-mais[hidden] { display: none; }
+
+/* ---------- Lista da busca ---------- */
+.lista-busca { list-style: none; padding: 0; margin: 0; }
+.lista-busca li a { display: flex; gap: 1rem; padding: .75rem; background: var(--cartao); border-radius: 8px; margin-bottom: .75rem; }
+.lista-busca img { width: 70px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 4px; }
+.lista-busca h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+.lista-busca .onde { margin: 0; color: var(--suave); }
+
+.status { text-align: center; color: var(--suave); }
+.status:empty { display: none; }
+
+/* ---------- Página do filme ---------- */
+.voltar { display: inline-block; margin-bottom: 1rem; color: var(--suave); }
+.detalhe { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.detalhe > img { width: 100%; max-width: 300px; border-radius: 8px; }
+.detalhe .texto { flex: 1; min-width: 260px; }
+.detalhe h2 { margin-top: 0; }
+.nota { color: #f5c518; font-weight: bold; }
+.grupo h4 { margin: 1rem 0 .5rem; }
+.logos { display: flex; flex-wrap: wrap; gap: .5rem; }
+.logos img { width: 46px; height: 46px; border-radius: 8px; }
+
+/* ---------- Rodapé ---------- */
+.rodape { text-align: center; padding: 1rem; font-size: .8rem; color: var(--suave); background: #000; }
+.rodape p { margin: .3rem 0; }

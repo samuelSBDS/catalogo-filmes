@@ -1,0 +1,8 @@
+# Arquivos secretos (NUNCA vão para o Git)
+js/config.js
+.env
+
+# Coisas geradas automaticamente
+node_modules/
+.netlify/
+.superpowers/

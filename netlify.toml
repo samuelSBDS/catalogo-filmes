@@ -1,0 +1,10 @@
+# Configuração da Netlify
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Quando o site pede /api/tmdb, a Netlify chama a nossa função "tmdb"
+[[redirects]]
+  from = "/api/tmdb"
+  to = "/.netlify/functions/tmdb"
+  status = 200

@@ -1,6 +1,6 @@
 // ===== CONFIGURAÇÃO =====
 // Coloque aqui o número de WhatsApp (código do país + DDD + número, só dígitos)
-const WHATSAPP = "5500000000000";
+const WHATSAPP = "5547999290287";
 
 // Todos os botões de WhatsApp usam o número acima
 document.querySelectorAll("[data-whatsapp]").forEach((link) => {
